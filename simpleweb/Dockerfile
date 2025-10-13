@@ -1,3 +1,7 @@
+# Run these commands to build and run the Docker container
+# docker build -t my-node-app .
+# docker run -p 3000:3000 my-node-app
+
 # Specify a base image
 FROM node:14-alpine
 
