@@ -1,0 +1,11 @@
+version : '1'
+services:
+  redis-server:
+    image : redis:latest
+  node-app:
+    restart: always  # Ensure the container restarts automatically if it crashes
+    build : .
+    ports :
+      - "4001:8081"
+    depends_on :
+      - redis-server
