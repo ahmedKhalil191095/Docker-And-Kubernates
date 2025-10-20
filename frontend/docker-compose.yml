@@ -1,0 +1,23 @@
+# Docker Compose file to define and run multi-container Docker applications
+# we have two services: web and tests So that we can run our application and tests in separate containers.
+version : '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: npm start
+
+  tests:
+    build:
+      context: .                    # context option define the Path to the build file
+      dockerfile: Dockerfile.dev    # dockerfile option define the Name of the build file
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"]
