@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+
+before_install:
+  - docker build -t ahmedfathallah/Docker-And-Kubernates -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true ahmedfathallah/Docker-And-Kubernates npm run test -- --coverage
