@@ -1,3 +1,4 @@
+# Travis CI configuration file
 sudo: required
 
 services:
